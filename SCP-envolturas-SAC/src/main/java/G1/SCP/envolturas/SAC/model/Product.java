@@ -25,7 +25,7 @@ public class Product {
     @Column(nullable = false)
     String description;
     @Column(nullable = false)
-    String imageURL;
+    String imageUrl;
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
     @JsonIgnore
     List<ProductRawMaterial> rawMaterials;

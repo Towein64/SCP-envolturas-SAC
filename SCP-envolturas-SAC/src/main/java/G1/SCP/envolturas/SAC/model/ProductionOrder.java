@@ -5,21 +5,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class ProductionOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    @Column(nullable = false)
-    String name;
-    @Column(unique = true,nullable = false)
-    String email;
-    @Column(nullable = false)
-    String pwd;
+    String companyName;
+    LocalDate leadTime;
+    String orderNumber;
     @ManyToOne
-    @JoinColumn(name = "rol_id",nullable = false)
-    Rol rol;
+    @JoinColumn(name = "product_id",nullable = false)
+    Product product;
 }

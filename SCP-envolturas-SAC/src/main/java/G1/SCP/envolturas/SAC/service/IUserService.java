@@ -9,4 +9,5 @@ public interface IUserService {
     public List<User> listUsers();
     public User getUserById(Integer id);
     public void deleteById(Integer id);
+    public User findByEmail(String email);
 }
