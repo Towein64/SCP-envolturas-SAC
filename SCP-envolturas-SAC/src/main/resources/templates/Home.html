@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<th:block th:replace="~{fragments/link-script::link-scrpit}"></th:block>
+<body>
+<div th:replace="~{fragments/NavFragment::navbar}"></div>
+<h3>HOME</h3>
+<p>Bienvenido, <span th:text="${session.userlogged.name}"></span>!</p>
+<p th:text="${session.userlogged.rol.rolName}"></p>
+</body>
+</html>

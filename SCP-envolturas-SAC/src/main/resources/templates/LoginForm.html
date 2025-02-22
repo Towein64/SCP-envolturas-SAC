@@ -7,6 +7,13 @@
     <title>Login</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 </head>
+<script>
+    window.onload = function() {
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    };
+</script>
 <style>
     .userimg{
         border-radius: 100px;
