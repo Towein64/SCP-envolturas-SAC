@@ -37,15 +37,30 @@
         display: block;
         margin: 0 auto;
     }
+    .rounded{
+        max-width: 150px;
+        height: auto;
+        border: none;
+        filter:drop-shadow(0 0 10px rgba(0,0,0, .8));
+        padding: 3px;
+        display: block;
+        margin: 0 auto;
+        opacity: 70%;
+    }
+    .containerEmpty{
+        margin-top: 100px;
+    }
+    .link-info{
+        font-size: 30px;
+    }
+
 </style>
-</head>
 
 <body>
 <div th:replace="~{fragments/NavFragment::navbar}"></div>
 
-<div class="container">
+<div class="container" th:if="${not #lists.isEmpty(productionOrders)}">
     <h3 class="text-center mb-4">Órdenes de Producción</h3>
-
     <div class="table-container">
         <table class="table table-bordered table-striped text-center">
             <thead class="table-dark">
@@ -118,6 +133,15 @@
         }
     </script>
 
+</div>
+<div class="containerEmpty" style="height: 50vh;" th:if="${#lists.isEmpty(productionOrders)}">
+    <p class="fs-1 d-flex justify-content-center" >Aun no hay Ordenes que mostrar, para agregar una nueva Orden...</p>
+    <div class="text-center">
+        <img src="https://images.vexels.com/media/users/3/146911/isolated/preview/50a6d66d1628e97f630846f158e5b7eb-simbolo-de-lupa.png" class="rounded" alt="...">
+    </div>
+    <div class="container">
+        <a class="link-info d-flex justify-content-center link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover w-100" href="/create">Click aqui...</a>
+    </div>
 </div>
 </body>
 </html>

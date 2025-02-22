@@ -1,25 +1,87 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <th:block th:replace="~{fragments/link-script::link-scrpit}"></th:block>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 </head>
+<style>
+    .userimg{
+        border-radius: 100px;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        margin-left: 100px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .card{
+        background-color: transparent;
+        width: 350px;
+    }
+    .mb-3{
+        width: 320px;
+        height: 100%;
+    }
+    .mb-3 input{
+        height: 100%;
+        width: 100%;
+        outline: none;
+        border: 2px solid rgba(255,255,255, .2);
+        border-radius: 40px;
+        padding: 20px 45px 20px 20px;
+        background-color: transparent;
+
+    }
+    .mb-3 i{
+        font-size: 20px;
+        transform: translateY(-3.5px)
+        translateX(-30px);
+    }
+    .bg-light{
+        display: flex;
+        background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5d3PQvFi4bPq9F8kPbX8LMfmmbMGluTidV8UUBmcuUfR0pM9YGjMucuSfL8beSnlMVuskKbjTqia8TzLqxR3IptqEf0FGd1GyVl3Z-SHAO9-VeBxQx7ZHSAqXzZh8fpXCAG_XgyYFZIIOFsUG8JMFc62vjGHoyzgqAazIu8uwXAgW2MoYTIDz-Lmx8TY/d/heroscreen-minimalist-wallpaper-4k.jpg") no-repeat;
+        align-items: center;
+        min-height: 100vh;
+        background-size: cover;
+    }
+    .btn{
+        background: #fff;
+        width: 100%;
+        height: 45px;
+        border: none;
+        outline: none;
+        border-radius:40px;
+        cursor: pointer;
+        font-size: 16px;
+        color: #333;
+        font-weight: 600;
+
+    }
+    .btn:hover{
+        background: #b0b5a8;
+    }
+</style>
 <body class="bg-light d-flex align-items-center justify-content-center vh-100">
 
 <div class="card shadow p-4" style="width: 350px;">
     <h3 class="text-center">Iniciar Sesión</h3>
+    <div>
+        <img src="https://cdn-icons-png.flaticon.com/512/295/295128.png" alt="userimg" class="userimg">
+    </div>
     <form th:action="@{/login}" method="post">
-        <div class="mb-3">
-            <label for="username" class="form-label">Usuario</label>
-            <input type="text" class="form-control" id="username" name="username" required th:field="*{user.email}">
+        <div class="mb-3 d-flex align-items-center">
+            <input type="text" class="form-control" id="username" name="username" required th:field="*{user.email}" placeholder="Usuario">
+            <i class='bx bxs-user'></i>
         </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password" name="password" required th:field="*{user.pwd}">
+        <div class="mb-3 d-flex align-items-center">
+            <input type="password" class="form-control" id="password" name="password" required th:field="*{user.pwd}" placeholder="Contrasenia">
+            <i class='bx bxs-lock-alt'></i>
         </div>
-        <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+        <button type="submit" class="btn">Ingresar</button>
     </form>
 </div>
 
